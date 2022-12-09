@@ -1,0 +1,21 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: build
+  image: golang
+  commands:
+  - echo hi
+  - set
+  - printenv
+
+trigger:
+  event:
+  - cron
+  - custom
+  - push
+  - pull_request
+  - tag
+  - promote
+  - rollback
