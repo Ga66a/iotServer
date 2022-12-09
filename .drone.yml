@@ -22,12 +22,12 @@ steps:
     - sleep 5 # give docker enough time to start
     - ls -la
     - set
-#     - echo $DOCKER_PASSWORD | docker login --username nologin --password-stdin example.org
+    - echo $DOCKER_PASSWORD | docker login --username $DOCKER_LOGIN --password-stdin docker.cloud.ga66a.ru
     - docker image ls
-    - docker build -t test .
+    - docker build -t docker.cloud.ga66a.ru/iot-server:v0.0.1 .
     - docker image ls
-    - DOCKER_BUILDKIT=1 docker build -t example.org/image:latest . --target base
-    - docker image ls
+#    - DOCKER_BUILDKIT=1 docker build -t example.org/image:latest . --target base
+#    - docker image ls
 #      - DOCKER_BUILDKIT=1 docker build -t example.org/image:tools . --target tools
 #      - docker push --all-tags example.org/image
 
