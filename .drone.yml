@@ -13,8 +13,8 @@ steps:
 - name: docker-build
   image: docker:dind
   volumes:
-   - name: dockersock
-       path: /var/run
+    - name: dockersock
+      path: /var/run
 #    environment:
 #      DOCKER_PASSWORD:
 #        from_secret: docker_password
