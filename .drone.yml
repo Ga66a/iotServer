@@ -15,11 +15,11 @@ steps:
   volumes:
     - name: dockersock
       path: /var/run
-    environment:
-      - DOCKER_PASSWORD:
-          from_secret: DOCKER_PASSWORD
-      - DOCKER_LOGIN:
-          from_secret: DOCKER_LOGIN
+  environment:
+    DOCKER_PASSWORD:
+      from_secret: DOCKER_PASSWORD
+    DOCKER_LOGIN:
+      from_secret: DOCKER_LOGIN
   commands:
     - sleep 5 # give docker enough time to start
     - ls -la
