@@ -10,7 +10,7 @@ steps:
   - set
   - printenv
 
-- name: docker-build
+- name: docker-build-and-push
   image: docker-proxy.cloud.ga66a.ru/docker:dind
   volumes:
     - name: dockersock
@@ -23,20 +23,12 @@ steps:
     APP_IMAGE: docker.cloud.ga66a.ru/iot-server:v0.0.1
   commands:
     - sleep 5 # give docker enough time to start
-    - ls -la
-    - set
     - docker login --username $DOCKER_LOGIN --password $DOCKER_PASSWORD docker.cloud.ga66a.ru
-    - docker image ls
     - docker build -t $APP_IMAGE .
-    - docker image ls
     - docker push $APP_IMAGE
-#    - DOCKER_BUILDKIT=1 docker build -t example.org/image:latest . --target base
-#    - docker image ls
-#      - DOCKER_BUILDKIT=1 docker build -t example.org/image:tools . --target tools
-#      - docker push --all-tags example.org/image
 
 services:
-  - name: docker
+  - name: docker-service
     image: docker-proxy.cloud.ga66a.ru/docker:dind
     privileged: true
     volumes:
