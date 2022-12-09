@@ -10,6 +10,35 @@ steps:
   - set
   - printenv
 
+  - name: docker-build
+    image: docker:dind
+    volumes:
+      - name: dockersock
+        path: /var/run
+#    environment:
+#      DOCKER_PASSWORD:
+#        from_secret: docker_password
+    commands:
+      - sleep 5 # give docker enough time to start
+#      - echo $DOCKER_PASSWORD | docker login --username nologin --password-stdin example.org
+      - DOCKER_BUILDKIT=1 docker build -t example.org/image:latest . --target base
+      - docker image ls
+      - DOCKER_BUILDKIT=1 docker build -t example.org/image:tools . --target tools
+      - docker push --all-tags example.org/image
+
+services:
+  - name: docker
+    image: docker:dind
+    privileged: true
+    volumes:
+      - name: dockersock
+        path: /var/run
+
+volumes:
+  - name: dockersock
+    temp: {}
+
+
 trigger:
   event:
   - cron
