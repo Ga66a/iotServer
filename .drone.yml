@@ -4,9 +4,9 @@ name: default
 
 steps:
 - name: build
-  image: golang
+  image: docker-proxy.cloud.ga66a.ru\gradle:7.2.0-jdk17
   commands:
-  - echo hi
+  - gradle assemble
   - set
   - printenv
 
