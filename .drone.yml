@@ -11,7 +11,7 @@ steps:
   - printenv
 
 - name: docker-build
-  image: docker:dind
+  image: docker-proxy.cloud.ga66a.ru/docker:dind
   volumes:
     - name: dockersock
       path: /var/run
@@ -28,7 +28,7 @@ steps:
 
 services:
   - name: docker
-    image: docker:dind
+    image: docker-proxy.cloud.ga66a.ru/docker:dind
     privileged: true
     volumes:
       - name: dockersock
