@@ -15,14 +15,16 @@ steps:
   volumes:
     - name: dockersock
       path: /var/run
-#    environment:
-#      DOCKER_PASSWORD:
-#        from_secret: docker_password
+    environment:
+      DOCKER_PASSWORD:
+        from_secret: DOCKER_PASSWORD
+      DOCKER_LOGIN:
+        from_secret: DOCKER_LOGIN
   commands:
     - sleep 5 # give docker enough time to start
     - ls -la
     - set
-    - echo $DOCKER_PASSWORD | docker login --username $DOCKER_LOGIN --password-stdin docker.cloud.ga66a.ru
+    - docker login --username $DOCKER_LOGIN --password $DOCKER_PASSWORD docker.cloud.ga66a.ru
     - docker image ls
     - docker build -t docker.cloud.ga66a.ru/iot-server:v0.0.1 .
     - docker image ls
