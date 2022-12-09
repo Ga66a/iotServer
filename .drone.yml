@@ -23,6 +23,9 @@ steps:
     - ls -la
     - set
 #     - echo $DOCKER_PASSWORD | docker login --username nologin --password-stdin example.org
+    - docker image ls
+    - docker build -t test .
+    - docker image ls
     - DOCKER_BUILDKIT=1 docker build -t example.org/image:latest . --target base
     - docker image ls
 #      - DOCKER_BUILDKIT=1 docker build -t example.org/image:tools . --target tools
