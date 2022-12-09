@@ -4,7 +4,7 @@ name: default
 
 steps:
 - name: build
-  image: docker-proxy.cloud.ga66a.ru\gradle:7.2.0-jdk17
+  image: docker-proxy.cloud.ga66a.ru/gradle:7.2.0-jdk17
   commands:
   - gradle assemble
   - set
