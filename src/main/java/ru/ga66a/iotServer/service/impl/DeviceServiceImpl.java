@@ -1,11 +1,13 @@
 package ru.ga66a.iotServer.service.impl;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 import ru.ga66a.iotServer.domain.Device;
 import ru.ga66a.iotServer.repository.DeviceRepository;
 import ru.ga66a.iotServer.service.DeviceService;
 
 @AllArgsConstructor
+@Service
 public class DeviceServiceImpl implements DeviceService {
     private final DeviceRepository deviceRepository;
 

@@ -8,6 +8,6 @@ import lombok.Data;
 @Data
 public class Property {
     @Id
-    private String key;
+    private String name;
     private String value;
 }

@@ -4,16 +4,15 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
 @Getter
 @Setter
-@Table(name="device")
 @AllArgsConstructor
-
+@NoArgsConstructor
 public class Device {
     @Id
-    private final String id;
-
+    private String id;
 }

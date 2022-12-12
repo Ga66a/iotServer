@@ -1,4 +1,16 @@
-
+spring:
+  jpa:
+#    hibernate:
+#      ddl-auto: update
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/iot-server?autoReconnect=true&useSSL=false
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+flyway:
+  locations:
+    - locations: classpath:db/migration/
 logging:
   level:
     ROOT: INFO
