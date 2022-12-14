@@ -27,4 +27,6 @@ public class Output {
     private Integer currentState;
     private Integer targetState;
     private Boolean readOnly;
+
+    private String test;
 }
