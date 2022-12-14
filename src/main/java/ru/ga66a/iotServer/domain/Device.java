@@ -1,11 +1,12 @@
 package ru.ga66a.iotServer.domain;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,6 +14,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Device {
+    public Device(String mak) {
+        this.mak = mak;
+    }
+
     @Id
-    private String id;
+    private String mak;
+    @OneToMany(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "device_mak")
+    private List<Output> outputs;
 }
