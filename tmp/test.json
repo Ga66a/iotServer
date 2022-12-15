@@ -13,6 +13,7 @@
     },
     {
       "name": "OUT12",
+      "pin": 2,
       "currentState": 1,
       "type": "Switch"
     }

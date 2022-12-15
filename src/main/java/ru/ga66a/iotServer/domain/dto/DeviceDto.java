@@ -23,6 +23,7 @@ public class DeviceDto {
     private static class IndicatorDto {
         private String name;
         private String type;
+        private Integer pin;
         private Integer currentState;
     }
 
@@ -32,6 +33,7 @@ public class DeviceDto {
             Indicator indicator = new Indicator();
             indicator.setDeviceMak(deviceDto.getMak());
             indicator.setName(indicatorDto.getName());
+            indicator.setPin(indicatorDto.getPin());
             indicator.setCurrentState(indicatorDto.getCurrentState());
             indicator.setType(indicatorDto.getType());
             device.getIndicators().add(indicator);
@@ -43,7 +45,11 @@ public class DeviceDto {
         DeviceDto deviceDto = new DeviceDto();
         deviceDto.setMak(device.getMak());
         for (Indicator indicator : device.getIndicators()) {
-            deviceDto.getIndicators().add(new IndicatorDto(indicator.getName(), indicator.getType(), indicator.getCurrentState()));
+            deviceDto.getIndicators().add(new IndicatorDto(
+                    indicator.getName(),
+                    indicator.getType(),
+                    indicator.getPin(),
+                    indicator.getCurrentState()));
         }
         return deviceDto;
     }

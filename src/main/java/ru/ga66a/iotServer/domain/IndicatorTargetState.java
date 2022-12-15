@@ -23,6 +23,8 @@ public class IndicatorTargetState {
 
     private Integer targetState;
 
+    private Integer pin;
+
     @Column(insertable = false, updatable = false)
     private Integer currentState;
 }

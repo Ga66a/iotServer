@@ -23,6 +23,8 @@ public class Indicator {
     @Id
     private String name;
 
+    private Integer pin;
+
     private String type;
 
     private Integer currentState;
