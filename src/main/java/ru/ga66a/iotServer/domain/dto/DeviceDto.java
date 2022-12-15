@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import ru.ga66a.iotServer.domain.Device;
-import ru.ga66a.iotServer.domain.Output;
+import ru.ga66a.iotServer.domain.Indicator;
 
 import java.util.List;
 
@@ -15,22 +15,26 @@ import java.util.List;
 @NoArgsConstructor
 public class DeviceDto {
     private String mak;
-    private List<OutputDto> outputs;
+    private List<IndicatorDto> indicators;
 
     @Getter
     @AllArgsConstructor
-    private static class OutputDto {
-        private Boolean readOnly;
-        private Integer outputNumber;
+    @NoArgsConstructor
+    private static class IndicatorDto {
+        private String name;
+        private String type;
+        private Integer currentState;
     }
 
     public static Device toDomain(DeviceDto deviceDto) {
         Device device = new Device(deviceDto.getMak());
-        for (OutputDto outputDto : deviceDto.getOutputs()) {
-            Output output = new Output();
-            output.setOutputNumber(outputDto.getOutputNumber());
-            output.setReadOnly(outputDto.getReadOnly());
-            device.getOutputs().add(output);
+        for (IndicatorDto indicatorDto : deviceDto.getIndicators()) {
+            Indicator indicator = new Indicator();
+            indicator.setDeviceMak(deviceDto.getMak());
+            indicator.setName(indicatorDto.getName());
+            indicator.setCurrentState(indicatorDto.getCurrentState());
+            indicator.setType(indicatorDto.getType());
+            device.getIndicators().add(indicator);
         }
         return device;
     }
@@ -38,8 +42,8 @@ public class DeviceDto {
     public static DeviceDto toDto(Device device) {
         DeviceDto deviceDto = new DeviceDto();
         deviceDto.setMak(device.getMak());
-        for (Output output : device.getOutputs()) {
-            deviceDto.getOutputs().add(new OutputDto(output.getReadOnly(),output.getOutputNumber()) );
+        for (Indicator indicator : device.getIndicators()) {
+            deviceDto.getIndicators().add(new IndicatorDto(indicator.getName(), indicator.getType(), indicator.getCurrentState()));
         }
         return deviceDto;
     }

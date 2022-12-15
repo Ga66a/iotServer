@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,11 +17,12 @@ import java.util.List;
 public class Device {
     public Device(String mak) {
         this.mak = mak;
+        this.indicators = new ArrayList<>();
     }
 
     @Id
     private String mak;
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "device_mak")
-    private List<Output> outputs;
+    private List<Indicator> indicators;
 }

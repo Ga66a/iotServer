@@ -1,22 +1,20 @@
 {
-  "id": "12:23:34:45:45:56",
-  "outputs": [
+  "mak": "12:23:34:45:45:56",
+  "indicators": [
     {
-      "id": "372fd9e0-9d00-435e-afac-812894847a5e",
-      "idDevice": "12:23:34:45:45:56",
-      "name": "12",
-      "description": "test switch",
-      "currentState": 0,
-      "targetState": 0,
-      "outputType": 0
-    },    {
-      "id": "",
-      "idDevice": "12:23:34:45:45:56",
-      "name": "123",
-      "description": "test switch",
-      "currentState": 3,
-      "targetState": 2,
-      "outputType": 0
+      "name": "DHT22-T",
+      "currentState": 22,
+      "type": "TemperatureSensor"
+    },
+    {
+      "name": "DHT22-H",
+      "currentState": 75,
+      "type": "Humidity"
+    },
+    {
+      "name": "OUT12",
+      "currentState": 1,
+      "type": "Switch"
     }
   ]
 }

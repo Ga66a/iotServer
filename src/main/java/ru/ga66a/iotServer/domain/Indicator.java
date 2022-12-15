@@ -9,24 +9,24 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
-
 @Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@IdClass(OutputId.class)
-public class Output {
+@IdClass(IndicatorId.class)
+public class Indicator {
     @Id
     @Column(name = "device_mak")
     private String deviceMak;
-    @Id
-    private Integer outputNumber;
-    private String description;
-    private Integer currentState;
-    private Integer targetState;
-    private Boolean readOnly;
 
-    private String test;
+    @Id
+    private String name;
+
+    private String type;
+
+    private Integer currentState;
+
+    @Column(insertable = false, updatable = false)
+    private Integer targetState;
 }
