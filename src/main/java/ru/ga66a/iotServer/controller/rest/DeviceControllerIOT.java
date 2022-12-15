@@ -10,9 +10,9 @@ import ru.ga66a.iotServer.service.IndicatorService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/device")
+@RequestMapping("/api/v1/device/iot")
 @AllArgsConstructor
-public class DeviceController {
+public class DeviceControllerIOT {
     private final DeviceService deviceService;
 
     private final IndicatorService indicatorService;
