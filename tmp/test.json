@@ -3,7 +3,7 @@
   "indicators": [
     {
       "name": "DHT22T",
-      "indication": 22.5,
+      "indication": 12.5,
       "type": "Sensor"
     },
     {
