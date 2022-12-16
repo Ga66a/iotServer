@@ -9,13 +9,18 @@ docker run --name mariadb -d -p3306:3306 \
   docker-proxy.cloud.ga66a.ru/mariadb:10.9.4
 
 Start victoria metrics
-docker run --name victoriaMetrics \
+docker run -d --name victoriaMetrics \
+  --restart always \
   -v /path/to/victoria-metrics-data:/victoria-metrics-data 
   -p 8428:8428 
 #  --entrypoint="/victoria-metrics-prod -httpAuth.username=test -httpAuth.password=123" 
   docker-proxy.cloud.ga66a.ru/victoriametrics/victoria-metrics:v1.85.1
 
-
+Start grafana
+docker run  -d --name=grafana \
+  --restart always \
+  -p 3000:3000 \
+  docker.cloud.ga66a.ru/grafana/grafana
 
 Start server:
 docker run --name=iot-server -p 8085:8080 -d --restart always \
