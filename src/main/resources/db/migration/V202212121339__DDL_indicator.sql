@@ -6,6 +6,7 @@ create table IF NOT EXISTS indicator (
     pin int,
     description varchar(200),
     current_state int,
-    target_state int
+    target_state int,
+    indication float
 
 );

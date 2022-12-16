@@ -31,4 +31,6 @@ public class Indicator {
 
     @Column(insertable = false, updatable = false)
     private Integer targetState;
+
+    private Float indication;
 }

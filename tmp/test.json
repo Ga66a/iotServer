@@ -2,14 +2,14 @@
   "mak": "12:23:34:45:45:56",
   "indicators": [
     {
-      "name": "DHT22-T",
-      "currentState": 22,
-      "type": "TemperatureSensor"
+      "name": "DHT22T",
+      "indication": 22.5,
+      "type": "Sensor"
     },
     {
-      "name": "DHT22-H",
-      "currentState": 75,
-      "type": "Humidity"
+      "name": "DHT22H",
+      "indication": 75.2,
+      "type": "Sensor"
     },
     {
       "name": "OUT12",

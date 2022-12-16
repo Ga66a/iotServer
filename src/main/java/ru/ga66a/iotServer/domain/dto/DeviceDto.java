@@ -25,6 +25,7 @@ public class DeviceDto {
         private String type;
         private Integer pin;
         private Integer currentState;
+        private Float indication;
     }
 
     public static Device toDomain(DeviceDto deviceDto) {
@@ -36,6 +37,7 @@ public class DeviceDto {
             indicator.setPin(indicatorDto.getPin());
             indicator.setCurrentState(indicatorDto.getCurrentState());
             indicator.setType(indicatorDto.getType());
+            indicator.setIndication(indicatorDto.getIndication());
             device.getIndicators().add(indicator);
         }
         return device;
@@ -49,7 +51,8 @@ public class DeviceDto {
                     indicator.getName(),
                     indicator.getType(),
                     indicator.getPin(),
-                    indicator.getCurrentState()));
+                    indicator.getCurrentState(),
+                    indicator.getIndication()));
         }
         return deviceDto;
     }
