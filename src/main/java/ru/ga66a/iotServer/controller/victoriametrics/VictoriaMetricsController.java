@@ -15,8 +15,7 @@ public class VictoriaMetricsController {
     public void push(Device device) {
         RestTemplate restTemplate = new RestTemplate();
         String resourceUrl
-                = "http://10.196.72.8:8428/api/v1/import/prometheus";
-        //String importString = "\"dacha{voltage=\\\"accum\\\"} ";
+                = serverHost + apiPath;
         for (Indicator indicator : device.getIndicators()) {
             if (indicator.getCurrentState() != null) {
                 restTemplate.postForObject(

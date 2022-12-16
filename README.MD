@@ -19,7 +19,7 @@ docker run -d --name victoriaMetrics \
 Start grafana
 docker run  -d --name=grafana \
   --restart always \
-  -p 3000:3000 \
+  -p 3100:3000 \
   docker.cloud.ga66a.ru/grafana/grafana
 
 Start server:
@@ -29,4 +29,4 @@ docker run --name=iot-server -p 8085:8080 -d --restart always \
   -e MARIADB_USER=<USERNAME> \
   -e VICTORIAMETRICS_HOST=http://10.10.10.10:8428 \
   -e VICTORIAMETRICS_APIPATH=/api/v1/import/prometheus \
-  docker.cloud.ga66a.ru/iot-server:v0.0.1
+  docker-proxy.cloud.ga66a.ru/iot-server:v0.0.1
