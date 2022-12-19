@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @Entity
 @Getter
 @Setter
@@ -33,4 +35,6 @@ public class Indicator {
     private Integer targetState;
 
     private Float indication;
+
+    private Date lastSeen;
 }

@@ -39,13 +39,11 @@ public class VictoriaMetricsController {
     }
 
     private static String indicatorToPrometheusDto(Indicator indicator, String metric, String value) {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append("iot{");
-        stringBuilder.append("mak=\"" + indicator.getDeviceMak() + "\",");
-        stringBuilder.append("name=\"" + indicator.getName() + "\",");
-        stringBuilder.append("type=\"" + indicator.getType() + "\",");
-        stringBuilder.append("metric=\"" + metric + "\"");
-        stringBuilder.append("}" + value);
-        return stringBuilder.toString();
+        return "iot{" +
+                "mak=\"" + indicator.getDeviceMak() + "\"," +
+                "name=\"" + indicator.getName() + "\"," +
+                "type=\"" + indicator.getType() + "\"," +
+                "metric=\"" + metric + "\"" +
+                "}" + value;
     }
 }
