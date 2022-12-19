@@ -41,9 +41,9 @@ public class DeviceServiceImpl implements DeviceService {
     @Override
     @Transactional
     public Device save(Device device) {
-        for (Indicator indicator : device.getIndicators()){
-            indicator.setLastSeen(new Date());
-        }
+//        for (Indicator indicator : device.getIndicators()){
+//            indicator.setLastSeen(new Date());
+//        }
 
         return deviceRepository.save(device);
     }

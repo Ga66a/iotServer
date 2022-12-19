@@ -1,1 +1,1 @@
-alter table indicator add column if not exists last_seen DATETIME;
+alter table indicator add column if not exists last_seen TIMESTAMP;
