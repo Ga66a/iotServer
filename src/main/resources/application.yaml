@@ -1,8 +1,8 @@
 spring:
-  jpa:
+#  jpa:
 #    hibernate:
 #      ddl-auto: update
-    show-sql: true
+#    show-sql: true
   datasource:
     url: jdbc:mariadb://${MARIADB_HOST:localhost}:3306/iot-server?autoReconnect=true&useSSL=false
     username: ${MARIADB_USER}

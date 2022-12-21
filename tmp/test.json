@@ -1,21 +1,29 @@
 {
-  "mak": "12:23:34:45:45:56",
+  "mak": "11:22:33:44:55:66",
   "indicators": [
     {
+      "name": "LED",
+      "pin": 2,
+      "currentState": 0,
+      "type": "Switch"
+    },
+    {
       "name": "DHT22T",
-      "indication": 12.5,
-      "type": "Sensor"
+      "pin": 4,
+      "indication": 28.29999924,
+      "type": "Temperature"
     },
     {
       "name": "DHT22H",
-      "indication": 75.2,
-      "type": "Sensor"
+      "pin": 4,
+      "indication": 36.40000153,
+      "type": "Humidity"
     },
     {
-      "name": "OUT12",
-      "pin": 2,
-      "currentState": 1,
-      "type": "Switch"
+      "name": "ACC",
+      "pin": 36,
+      "indication": 12.36996337,
+      "type": "Voltage"
     }
   ]
 }

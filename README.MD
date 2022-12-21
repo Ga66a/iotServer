@@ -13,20 +13,22 @@ docker run -d --name victoriaMetrics \
   --restart always \
   -v /path/to/victoria-metrics-data:/victoria-metrics-data 
   -p 8428:8428 
+  -p 4242:4242
 #  --entrypoint="/victoria-metrics-prod -httpAuth.username=test -httpAuth.password=123" 
-  docker-proxy.cloud.ga66a.ru/victoriametrics/victoria-metrics:v1.85.1
+  docker-proxy.cloud.ga66a.ru/victoriametrics/victoria-metrics:v1.85.1 --opentsdbListenAddr=0.0.0.0:4242
 
 Start grafana
 docker run  -d --name=grafana \
   --restart always \
   -p 3100:3000 \
-  docker.cloud.ga66a.ru/grafana/grafana
+  -v /path/to/grafana-data:/var/lib/grafana
+  docker.cloud.ga66a.ru/grafana/grafana:9.3.2
 
 Start server:
 docker run --name=iot-server -p 8085:8080 -d --restart always \
   -e MARIADB_HOST=<DBHostname> \
   -e MARIADB_PASSWORD=<PASSWORD> \
   -e MARIADB_USER=<USERNAME> \
-  -e VICTORIAMETRICS_HOST=http://10.10.10.10:8428 \
-  -e VICTORIAMETRICS_APIPATH=/api/v1/import/prometheus \
+  -e OPENTSDB_HOST=http://10.10.10.10:4242 \
+  -e OPENTSDB_APIPATH=/api \
   docker-proxy.cloud.ga66a.ru/iot-server:v0.0.1
