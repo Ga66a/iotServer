@@ -1,0 +1,31 @@
+{
+  "mac": "C0:49:EF:EF:FE:B0",
+  "firmwareUrlCurrent": "http://test/test/test",
+  "deepSleep": "true",
+  "indicators": [
+    {
+      "name": "LED",
+      "pin": 2,
+      "currentState": 0,
+      "type": "Switch"
+    },
+    {
+      "name": "DHT22T",
+      "pin": 4,
+      "indication": null,
+      "type": "Temperature"
+    },
+    {
+      "name": "DHT22H",
+      "pin": 4,
+      "indication": null,
+      "type": "Humidity"
+    },
+    {
+      "name": "ACC",
+      "pin": 36,
+      "indication": 0,
+      "type": "Voltage"
+    }
+  ]
+}

@@ -26,6 +26,6 @@ public class Device {
     private String firmwareUrlTarget;
     private Boolean deepSleep;
     @OneToMany(cascade = {CascadeType.ALL})
-    @JoinColumn(name = "device_mak")
+    @JoinColumn(name = "device_mac")
     private List<Indicator> indicators;
 }
