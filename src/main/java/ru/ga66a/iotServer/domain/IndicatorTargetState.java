@@ -15,8 +15,8 @@ import lombok.Setter;
 @IdClass(IndicatorId.class)
 public class IndicatorTargetState {
     @Id
-    @Column(name = "device_mak")
-    private String deviceMak;
+    @Column(name = "device_mac")
+    private String deviceMac;
 
     @Id
     private String name;

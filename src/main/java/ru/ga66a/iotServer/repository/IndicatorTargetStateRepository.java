@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface IndicatorTargetStateRepository extends JpaRepository<IndicatorTargetState, IndicatorId> {
-    List<IndicatorTargetState> findByDeviceMak(String deviceMak);
+    List<IndicatorTargetState> findByDeviceMac(String deviceMac);
 }

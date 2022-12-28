@@ -1,5 +1,5 @@
 create table IF NOT EXISTS indicator (
-    device_mak varchar(17) NOT NULL,
+    device_mac varchar(17) NOT NULL,
     name varchar(50) NOT NULL,
     type varchar(20),
     pin int,

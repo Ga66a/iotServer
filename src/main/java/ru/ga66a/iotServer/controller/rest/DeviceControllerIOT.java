@@ -17,9 +17,9 @@ public class DeviceControllerIOT {
 
     private final IndicatorService indicatorService;
 
-    @GetMapping("/{deviceMak}")
-    public List<IndicatorTargetState> getDevice(@PathVariable("deviceMak") String deviceMak) {
-        return indicatorService.getIndicatorsToChange(deviceMak);
+    @GetMapping("/{deviceMac}")
+    public List<IndicatorTargetState> getDevice(@PathVariable("deviceMac") String deviceMac) {
+        return indicatorService.getIndicatorsToChange(deviceMac);
     }
     @PostMapping("/")
     public void saveDevice(@RequestBody DeviceDto deviceDto){

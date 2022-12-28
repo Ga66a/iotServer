@@ -6,11 +6,11 @@ import java.io.Serializable;
 
 @NoArgsConstructor
 public class IndicatorId implements Serializable {
-    private  String deviceMak;
+    private  String deviceMac;
     private  String name;
 
-    public IndicatorId(String deviceMak, String name) {
-        this.deviceMak = deviceMak;
+    public IndicatorId(String deviceMac, String name) {
+        this.deviceMac = deviceMac;
         this.name = name;
     }
 

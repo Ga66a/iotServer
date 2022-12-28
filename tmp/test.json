@@ -1,5 +1,7 @@
 {
-  "mak": "11:22:33:44:55:66",
+  "mac": "11:22:33:44:55:66",
+  "firmwareUrlCurrent": "http://123/123/123",
+  "deepSleep": true,
   "indicators": [
     {
       "name": "LED",

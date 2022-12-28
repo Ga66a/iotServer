@@ -59,7 +59,7 @@ public class OpenTSDBServiceImpl implements ru.ga66a.iotServer.service.OpenTSDBS
 
     private JSONObject getJsonIndicator(Indicator indicator, String type, String value, String state) {
         JSONObject tags = new JSONObject();
-        tags.put("mak", indicator.getDeviceMak());
+        tags.put("mac", indicator.getDeviceMac());
         tags.put("name", indicator.getName());
         tags.put("type", indicator.getType());
         if (state != null) {

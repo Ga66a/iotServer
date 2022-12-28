@@ -19,17 +19,17 @@ public class IndicatorServiceImpl implements IndicatorService {
     @Override
     public void setIndicatorTargetState(Indicator indicator, Integer state) {
         IndicatorTargetState indicatorTargetState = indicatorTargetStateRepository
-                .findById(new IndicatorId(indicator.getDeviceMak(), indicator.getName()))
+                .findById(new IndicatorId(indicator.getDeviceMac(), indicator.getName()))
                 .orElseThrow(() ->
-                        new IllegalStateException(String.format("Indicator not found. MAK: %s Name:%s",
-                                indicator.getDeviceMak(), indicator.getName())));
+                        new IllegalStateException(String.format("Indicator not found. MAC: %s Name:%s",
+                                indicator.getDeviceMac(), indicator.getName())));
         indicatorTargetState.setTargetState(state);
         indicatorTargetStateRepository.save(indicatorTargetState);
     }
 
     @Override
-    public List<IndicatorTargetState> getIndicatorsToChange(String deviceMak) {
-        List<IndicatorTargetState> indicatorsTargetStates = indicatorTargetStateRepository.findByDeviceMak(deviceMak);
+    public List<IndicatorTargetState> getIndicatorsToChange(String deviceMac) {
+        List<IndicatorTargetState> indicatorsTargetStates = indicatorTargetStateRepository.findByDeviceMac(deviceMac);
         indicatorsTargetStates.removeIf(
                 indicator ->
                         indicator.getTargetState() == null || Objects.equals(indicator.getTargetState(), indicator.getCurrentState()));

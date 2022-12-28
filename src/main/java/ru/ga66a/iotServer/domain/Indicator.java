@@ -19,8 +19,8 @@ import java.util.Date;
 @IdClass(IndicatorId.class)
 public class Indicator {
     @Id
-    @Column(name = "device_mak")
-    private String deviceMak;
+    @Column(name = "device_mac")
+    private String deviceMac;
 
     @Id
     private String name;
