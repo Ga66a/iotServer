@@ -7,15 +7,16 @@ docker run --name mariadb -d -p3306:3306 \
   -e MARIADB_USER=<USERNAME> \
   -e MARIADB_PASSWORD=<PASSWORD> \
   docker-proxy.cloud.ga66a.ru/mariadb:10.9.4
-
+ 
 Start victoria metrics
 docker run -d --name victoriaMetrics \
   --restart always \
-  -v /path/to/victoria-metrics-data:/victoria-metrics-data 
-  -p 8428:8428 
-  -p 4242:4242
-#  --entrypoint="/victoria-metrics-prod -httpAuth.username=test -httpAuth.password=123" 
+  -v /path/to/victoria-metrics-data:/victoria-metrics-data \
+  -p 8428:8428 \
+  -p 4242:4242 \
   docker-proxy.cloud.ga66a.ru/victoriametrics/victoria-metrics:v1.85.1 --opentsdbListenAddr=0.0.0.0:4242
+
+#  --entrypoint="/victoria-metrics-prod -httpAuth.username=test -httpAuth.password=123"
 
 Start grafana
 docker run  -d --name=grafana \
