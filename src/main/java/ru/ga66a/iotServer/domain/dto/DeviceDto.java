@@ -16,7 +16,6 @@ import java.util.List;
 public class DeviceDto {
     private String mac;
     private String firmwareUrlCurrent;
-    private Boolean deepSleep;
     private List<IndicatorDto> indicators;
 
     @Getter
@@ -32,7 +31,6 @@ public class DeviceDto {
 
     public static Device toDomain(DeviceDto deviceDto) {
         Device device = new Device(deviceDto.getMac());
-        device.setDeepSleep(deviceDto.getDeepSleep());
         device.setFirmwareUrlCurrent(deviceDto.getFirmwareUrlCurrent());
         for (IndicatorDto indicatorDto : deviceDto.getIndicators()) {
             Indicator indicator = new Indicator();
@@ -50,7 +48,7 @@ public class DeviceDto {
     public static DeviceDto toDto(Device device) {
         DeviceDto deviceDto = new DeviceDto();
         deviceDto.setMac(device.getMac());
-        deviceDto.setDeepSleep(device.getDeepSleep());
+
         deviceDto.setFirmwareUrlCurrent(device.getFirmwareUrlCurrent());
         for (Indicator indicator : device.getIndicators()) {
             deviceDto.getIndicators().add(new IndicatorDto(
