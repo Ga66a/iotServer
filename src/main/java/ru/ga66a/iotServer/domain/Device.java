@@ -26,6 +26,7 @@ public class Device {
     private String firmwareUrlCurrent;
     @Column(insertable = false, updatable = false)
     private String firmwareUrlTarget;
+    @Column(insertable = false, updatable = false)
     private Boolean deepSleep;
     @OneToMany(cascade = {CascadeType.ALL})
     @JoinColumn(name = "device_mac")
