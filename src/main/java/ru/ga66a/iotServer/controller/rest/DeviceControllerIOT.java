@@ -8,6 +8,7 @@ import ru.ga66a.iotServer.service.DeviceService;
 import ru.ga66a.iotServer.service.IndicatorService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/iot/device")
@@ -22,8 +23,9 @@ public class DeviceControllerIOT {
         return indicatorService.getIndicatorsToChange(deviceMac);
     }
     @PostMapping("/")
-    public void saveDevice(@RequestBody DeviceDto deviceDto){
+    public Map<String,String> saveDevice(@RequestBody DeviceDto deviceDto){
          deviceService.save(deviceDto);
+         return deviceService.getDeviceParameters(deviceDto.getMac());
     }
 
 }

@@ -1,5 +1,5 @@
 {
-  "mac": "C0:49:EF:EF:FE:B0",
+  "mac": "00:00:00:00:00:01",
   "firmwareUrlCurrent": "http://test/test/test",
   "deepSleep": "true",
   "indicators": [

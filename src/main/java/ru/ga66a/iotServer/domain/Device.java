@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Cacheable(false)
 @Getter
 @Setter
 @AllArgsConstructor
@@ -23,6 +24,7 @@ public class Device {
     @Id
     private String mac;
     private String firmwareUrlCurrent;
+    @Column(insertable = false, updatable = false)
     private String firmwareUrlTarget;
     private Boolean deepSleep;
     @OneToMany(cascade = {CascadeType.ALL})
